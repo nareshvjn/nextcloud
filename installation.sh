@@ -4,7 +4,11 @@
 sudo apt update
 sudo apt install apache2 mysql-server php7.4 php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl php7.4-gmp php7.4-bcmath php7.4-xml libapache2-mod-php7.4 php7.4-zip php-imagick php-apcu -y
 sudo mysql_secure_installation
-sudo mysql -u root -p
+sudo mysql -p=password -u "root" -Bse "CREATE DATABASE nextcloud;
+CREATE USER 'nextcloud'@'localhost' IDENTIFIED BY 'nkvjn';
+GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost';
+flush privleges;
+quit"
 #mysql> create database nextcloud;
 #mysql> create user 'nextcloud'@'localhost' identified by 'nkvjn';
 #mysql> grant all privileges on nextcloud.* to 'nextcloud'@'localhost';
@@ -50,7 +54,7 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 #    ErrorLog ${APACHE_LOG_DIR}/error.log
 #    CustomLog ${APACHE_LOG_DIR}/access.log combined
 #
-#</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+#</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf
 sudo service apache2 restart
 read
 sudo nano /var/www/nextcloud/config/config.php
@@ -121,4 +125,4 @@ sudo apt install imagemagick php-imagick -y
 #sudo a2ensite default-ssl.conf
 #sudo a2enmod ssl
 #sudo a2enmod rewrite
-#sudo service apache2 restart
+sudo service apache2 restart
