@@ -77,7 +77,7 @@ sudo apt autoremove -y
 sudo apt install imagemagick php-imagick -y
 
 #sudo cp -a /var/www/nextcloud/data/. /mnt/cloud/data/
-#sudo -u www-data php /var/www/nextcloud/occ maintenance:update:htaccess
+sudo -u www-data php /var/www/nextcloud/occ maintenance:update:htaccess
 
 #ssl certification https://techguides.yt/guides/free-wildcard-ssl-certificate-for-nextcloud-and-wordpress/
 
