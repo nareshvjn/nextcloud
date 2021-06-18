@@ -68,7 +68,7 @@ sudo nano /var/www/nextcloud/config/config.php
 #'memcache.local' => '\OC\Memcache\APCu',
 #'htaccess.RewriteBase' => '/',
 
-sudo nano /etc/php/7.4/apache2/config.php
+sudo nano /etc/php/7.4/apache2/php.ini
 #memory_limit = 512M
 sudo crontab -u www-data -e
 #*/5  *  *  *  * php -f /var/www/nextcloud/cron.php
