@@ -7,7 +7,7 @@ sudo mysql_secure_installation
 sudo mysql -p=nkvjn -u "root" -Bse "CREATE DATABASE nextcloud;
 CREATE USER 'nextcloud'@'localhost' IDENTIFIED BY 'nkvjn';
 GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost';
-flush privleges;
+flush privileges;
 quit"
 #mysql> create database nextcloud;
 #mysql> create user 'nextcloud'@'localhost' identified by 'nkvjn';
@@ -101,7 +101,7 @@ sudo -u www-data php /var/www/nextcloud/occ maintenance:update:htaccess
 #                    Dav off
 #                   </IfModule>
 #
-#		    SetEnv HOME /var/www/nextcloud
+#		                SetEnv HOME /var/www/nextcloud
 #                   SetEnv HTTP_HOME /var/www/nextcloud
 #
 #                   RewriteEngine On
