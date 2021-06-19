@@ -21,7 +21,7 @@ sudo chown -R www-data:www-data nextcloud/
 sudo a2enmod headers env dir mime rewrite
 sudo service apache2 restart
 sudo nano /etc/apache2/sites-available/000-default.conf
-#<VirtualHost *:80>
+#sudo sh -c "echo '<VirtualHost *:80>
 #
 #    ServerName cloud.yourdomain.com
 #    DocumentRoot /var/www/nextcloud
@@ -35,8 +35,8 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 #            Dav off
 #        </IfModule>
 #
-#	SetEnv HOME /var/www/nextcloud
-#	SetEnv HTTP_HOME /var/www/nextcloud
+#	       SetEnv HOME /var/www/nextcloud
+#	       SetEnv HTTP_HOME /var/www/nextcloud
 #
 #        RewriteEngine On
 #        RewriteRule ^/\.well-known/carddav https://%{SERVER_NAME}/remote.php/dav/ [R=301,L]
@@ -45,28 +45,28 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 #        RewriteRule ^/\.well-known/host-meta\.json https://%{SERVER_NAME}/public.php?service=host-meta-json [QSA,L]
 #        RewriteRule ^/\.well-known/webfinger https://%{SERVER_NAME}/public.php?service=webfinger [QSA,L]
 #
-#	<IfModule mod_headers.c>
-#	Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"
-#	</IfModule>
+#        <IfModule mod_headers.c>
+#	       Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"
+#	       </IfModule>
 #
 #    </Directory>
 #
 #    ErrorLog ${APACHE_LOG_DIR}/error.log
 #    CustomLog ${APACHE_LOG_DIR}/access.log combined
 #
-#</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf
+#</VirtualHost>' >> /etc/apache2/sites-available/000-default.conf"
 sudo service apache2 restart
 read
 sudo nano /var/www/nextcloud/config/config.php
 #
-#'trusted_domains' =>  
-#array(
-#  0 => 192.168.1.50:80
-#  1 => yourdomain.com
-#),
-#'default_phone_region' => 'IN',
-#'memcache.local' => '\OC\Memcache\APCu',
-#'htaccess.RewriteBase' => '/',
+#  'trusted_domains' =>  
+#  array(
+#    0 => 192.168.1.50:80
+#    1 => yourdomain.com
+#  ),
+#  'default_phone_region' => 'IN',
+#  'memcache.local' => '\OC\Memcache\APCu',
+#  'htaccess.RewriteBase' => '/',
 
 sudo nano /etc/php/7.4/apache2/php.ini
 #memory_limit = 512M
