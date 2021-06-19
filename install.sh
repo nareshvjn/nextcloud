@@ -58,14 +58,14 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 sudo service apache2 restart
 read
 
-echo '#  'trusted_domains' =>
+echo "#  'trusted_domains' =>
 #  array(
 #    0 => 192.168.1.50:80
 #    1 => yourdomain.com
 #  ),
 #  'default_phone_region' => 'IN',
 #  'memcache.local' => '\OC\Memcache\APCu',
-#  'htaccess.RewriteBase' => '/',' | sudo tee -a /var/www/nextcloud/config/config.php > /dev/null
+#  'htaccess.RewriteBase' => '/'," | sudo tee -a /var/www/nextcloud/config/config.php > /dev/null
 sudo nano /var/www/nextcloud/config/config.php
 
 sudo nano /etc/php/7.4/apache2/php.ini
