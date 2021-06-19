@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #nextcloud installation https://techguides.yt/guides/how-to-install-and-configure-nextcloud-hub-21/
+sudo timedatectl set-timezone Asia/Kolkata
 sudo apt update
 sudo apt install apache2 mysql-server php7.4 php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl php7.4-gmp php7.4-bcmath php7.4-xml libapache2-mod-php7.4 php7.4-zip php-imagick php-apcu -y
 sudo mysql_secure_installation
