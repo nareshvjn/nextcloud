@@ -83,12 +83,11 @@ sudo -u www-data php /var/www/nextcloud/occ maintenance:update:htaccess
 #ssl certification https://techguides.yt/guides/free-wildcard-ssl-certificate-for-nextcloud-and-wordpress/
 
 #sudo apt-get install certbot python3-certbot-apache -y
-#sudo certbot certonly --manual -d *.yourdomain.com -d yourdomain.com --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory
-#sudo nano /etc/apache2/sites-available/default-ssl.conf
-#<IfModule mod_ssl.c>
+#sudo certbot certonly --manual -d nknc.tk --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory
+#echo '<IfModule mod_ssl.c>
 #        <VirtualHost *:443>
 #               ServerName nknc.tk
-#                SSLEngine On
+#               SSLEngine On
 #               SSLCertificateFile /etc/letsencrypt/live/nknc.tk/cert.pem
 #               SSLCertificateKeyFile /etc/letsencrypt/live/nknc.tk/privkey.pem
 #               DocumentRoot /var/www/nextcloud/
@@ -102,7 +101,7 @@ sudo -u www-data php /var/www/nextcloud/occ maintenance:update:htaccess
 #                    Dav off
 #                   </IfModule>
 #
-#		                SetEnv HOME /var/www/nextcloud
+#		            SetEnv HOME /var/www/nextcloud
 #                   SetEnv HTTP_HOME /var/www/nextcloud
 #
 #                   RewriteEngine On
@@ -122,7 +121,8 @@ sudo -u www-data php /var/www/nextcloud/occ maintenance:update:htaccess
 #               CustomLog ${APACHE_LOG_DIR}/access.log combined
 #
 #       </VirtualHost>
-#</IfModule>
+#</IfModule>' | sudo tee -a /etc/apache2/sites-available/default-ssl.conf > /dev/null
+#sudo nano /etc/apache2/sites-available/default-ssl.conf
 #sudo a2ensite default-ssl.conf
 #sudo a2enmod ssl
 #sudo a2enmod rewrite
