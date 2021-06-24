@@ -5,10 +5,10 @@ sudo timedatectl set-timezone Asia/Kolkata
 sudo apt update
 sudo apt install apache2 mysql-server php7.4 php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl php7.4-gmp php7.4-bcmath php7.4-xml libapache2-mod-php7.4 php7.4-zip php-imagick php-apcu -y
 sudo mysql_secure_installation
-read -p "Enter password for root: " rootpass
+read -s -p "Enter password for root: " rootpass
 read -p "Enter database name: " db
 read -p "Enter Username for database: " user
-read -p "Enter password for database: " pass
+read -s -p "Enter password for database: " pass
 sudo mysql -p=$rootpass -u "root" -Bse "CREATE DATABASE $db;
 CREATE USER '${user}'@'localhost' IDENTIFIED BY '${pass}';
 GRANT ALL PRIVILEGES ON $db.* TO '${user}'@'localhost';
