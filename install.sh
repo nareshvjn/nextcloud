@@ -61,7 +61,7 @@ echo '<VirtualHost *:80>
 </VirtualHost>' | sudo tee -a /etc/apache2/sites-available/000-default.conf > /dev/null
 sudo nano /etc/apache2/sites-available/000-default.conf
 sudo service apache2 restart
-read -p "open `hostname -I | cut -d' ' -f1` and press enter" enter
+read -p "open http://`hostname -I | cut -d' ' -f1` and press enter" enter
 echo "#  'trusted_domains' =>
 #  array(
 #    0 => 192.168.1.50:80
