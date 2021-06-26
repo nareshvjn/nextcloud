@@ -21,7 +21,7 @@ quit"
 #mysql> grant all privileges on nextcloud.* to 'nextcloud'@'localhost';
 #mysql> flush privileges;
 #mysql> quit
-#wget https://download.nextcloud.com/server/releases/nextcloud-21.0.2.zip
+wget https://download.nextcloud.com/server/releases/nextcloud-21.0.2.zip
 sudo unzip nextcloud-21.0.2.zip -d /var/www
 cd /var/www
 sudo chown -R www-data:www-data nextcloud/
