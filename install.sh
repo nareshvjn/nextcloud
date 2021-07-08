@@ -10,7 +10,7 @@ read -p "Enter Username for database: " user
 stty -echo
 read -p "Enter password for database: " pass
 echo ""
-read -p "Enter password for mysql root: " rootpass
+read -p "Enter mysql root password: " rootpass
 stty echo
 sudo mysql -p=$rootpass -u "root" -Bse "CREATE DATABASE $db;
 CREATE USER '${user}'@'localhost' IDENTIFIED BY '${pass}';
