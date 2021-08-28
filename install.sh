@@ -3,7 +3,7 @@
 #nextcloud installation https://techguides.yt/guides/how-to-install-and-configure-nextcloud-hub-21/
 sudo timedatectl set-timezone Asia/Kolkata
 sudo apt update
-sudo apt install unzip apache2 mysql-server php7.4 php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl php7.4-gmp php7.4-bcmath php7.4-xml libapache2-mod-php7.4 php7.4-zip php-apcu -y
+sudo apt install unzip apache2 mysql-server php7.4 php7.4-gd php7.4-mysql php7.4-curl php7.4-mbstring php7.4-intl php7.4-gmp php7.4-bcmath php7.4-xml libapache2-mod-php7.4 php7.4-zip php-apcu imagemagick-6-common php-imagick -y
 sudo mysql_secure_installation
 read -p "Enter database name: " db
 read -p "Enter Username for database: " user
@@ -92,8 +92,8 @@ sudo sed -i '409 s/128/512/' /etc/php/7.4/apache2/php.ini
 read -p "Paste this next window */5  *  *  *  * php -f /var/www/nextcloud/cron.php" cron
 sudo crontab -u www-data -e
 
-#sudo apt remove imagemagick-6-common php-imagick -y
-#sudo apt autoremove -y
+sudo apt remove imagemagick-6-common php-imagick -y
+sudo apt autoremove -y
 sudo apt install imagemagick php-imagick -y
 
 #ssl certification https://techguides.yt/guides/free-wildcard-ssl-certificate-for-nextcloud-and-wordpress/
