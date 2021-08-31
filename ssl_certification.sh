@@ -2,6 +2,8 @@
 
 sudo apt-get install certbot python3-certbot-apache -y
 sudo certbot certonly --manual -d nknc.tk --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory
+sudo mv /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.bak
+sudo touch /etc/apache2/sites-available/default-ssl.conf
 echo '<IfModule mod_ssl.c>
         <VirtualHost *:443>
                ServerName nknc.tk
@@ -40,7 +42,7 @@ echo '<IfModule mod_ssl.c>
 
        </VirtualHost>
 </IfModule>' | sudo tee -a /etc/apache2/sites-available/default-ssl.conf > /dev/null
-sudo nano /etc/apache2/sites-available/default-ssl.conf
+#sudo nano /etc/apache2/sites-available/default-ssl.conf
 sudo a2ensite default-ssl.conf
 sudo a2enmod ssl
 sudo a2enmod rewrite
