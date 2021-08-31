@@ -89,7 +89,7 @@ sudo -u www-data php /var/www/nextcloud/occ maintenance:update:htaccess
 sudo sed -i '409 s/128/512/' /etc/php/7.4/apache2/php.ini
 #sudo nano /etc/php/7.4/apache2/php.ini
 #memory_limit = 512M
-read -p "Paste this next window */5  *  *  *  * php -f /var/www/nextcloud/cron.php" cron
+read -p "Paste this next window - */5  *  *  *  * php -f /var/www/nextcloud/cron.php" cron
 sudo crontab -u www-data -e
 
 sudo apt remove imagemagick-6-common php-imagick -y
